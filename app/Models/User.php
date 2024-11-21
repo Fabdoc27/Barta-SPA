@@ -54,14 +54,24 @@ class User extends Authenticatable
     protected function getAvatar(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->avatar_url
-            ? asset('storage/'.$this->avatar_url)
-            : 'https://ui-avatars.com/api/?name='.$this->name,
+            get: fn() => $this->avatar_url
+            ? asset('storage/' . $this->avatar_url)
+            : 'https://ui-avatars.com/api/?name=' . $this->name,
         );
     }
 
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

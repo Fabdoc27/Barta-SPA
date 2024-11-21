@@ -16,6 +16,9 @@
                     Create Post
                 </a>
 
+                {{-- Notification Dropdown --}}
+                <livewire:notification-dropdown />
+
                 {{-- Profile dropdown  --}}
                 <div class="relative ml-3" x-data="{ open: false }">
                     {{-- User Avatar --}}

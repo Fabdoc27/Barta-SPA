@@ -4,6 +4,7 @@ use App\Livewire\Auth\LoginUser;
 use App\Livewire\Auth\Logout;
 use App\Livewire\Auth\RegisterUser;
 use App\Livewire\HomeFeed;
+use App\Livewire\Notification\NotificationIndex;
 use App\Livewire\Post\PostCreate;
 use App\Livewire\Post\PostEdit;
 use App\Livewire\Post\PostShow;
@@ -19,6 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/create', PostCreate::class)->name('posts.create');
     Route::get('/posts/{post}', PostShow::class)->name('posts.show');
     Route::get('/posts/{post}/edit', PostEdit::class)->name('posts.edit');
+
+    Route::get('/notifications', NotificationIndex::class)->name('notifications.index');
 
     Route::get('/profile/{user:username}', UserProfile::class)->name('profile.index');
     Route::get('/profile/{user:username}/edit', UserProfileEdit::class)->name('profile.edit');
