@@ -10,7 +10,7 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-6" wire:submit="login">
+        <form class="space-y-6" wire:submit.prevent="login">
             {{-- email --}}
             <div>
                 <x-input-label for="email">Email Address</x-input-label>

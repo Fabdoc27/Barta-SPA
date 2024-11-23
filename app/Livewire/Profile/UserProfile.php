@@ -31,6 +31,7 @@ class UserProfile extends Component
     public function loadPosts()
     {
         $newPosts = $this->user->posts()->latest()
+            ->withCount(['likes', 'comments'])
             ->offset($this->offset)
             ->limit($this->limit)
             ->get();

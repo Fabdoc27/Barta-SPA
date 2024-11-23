@@ -36,7 +36,9 @@ class HomeFeed extends Component
 
     public function loadPosts()
     {
-        $query = Post::with('user')->latest();
+        $query = Post::with('user')
+            ->withCount(['likes', 'comments'])
+            ->latest();
 
         if ($this->userId) {
             $query->where('user_id', $this->userId);

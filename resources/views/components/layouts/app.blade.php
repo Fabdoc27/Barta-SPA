@@ -15,20 +15,18 @@
             display: none !important;
         }
     </style>
-    @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-gray-100" x-data x-on:click=($dispatch('clear-results'))>
     @include('components.layouts.partials.navbar', ['user' => auth()->user()])
 
-    <main class="container max-w-xl min-h-screen px-2 mx-auto mt-8 space-y-8 md:px-0">
+    <main class="container max-w-xl min-h-screen px-2 mx-auto mt-8 space-y-6 md:px-0">
         @include('components.layouts.partials.session-message')
         {{ $slot }}
     </main>
 
     @include('components.layouts.partials.footer')
-    @livewireScripts
 </body>
 
 </html>

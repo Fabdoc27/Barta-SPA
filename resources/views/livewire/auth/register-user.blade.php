@@ -9,7 +9,7 @@
     </div>
 
     <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-6" wire:submit="register">
+        <form class="space-y-6" wire:submit.prevent="register">
             {{-- name --}}
             <div>
                 <x-input-label for="name">Full Name</x-input-label>

@@ -10,6 +10,11 @@ class SinglePost extends Component
 {
     public $post;
 
+    public function mount(Post $post)
+    {
+        $this->post = $post->loadCount(['likes', 'comments']);
+    }
+
     public function delete(Post $post)
     {
         $this->authorize('delete', $post);

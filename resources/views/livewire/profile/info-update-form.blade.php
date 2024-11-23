@@ -6,7 +6,7 @@
         </p>
     </header>
 
-    <form wire:submit="updateProfile">
+    <form wire:submit.prevent="updateProfile">
         <div class="space-y-12">
             <div class="pb-12 border-b border-gray-900/10">
                 <div class="pb-12 mt-10 border-b border-gray-900/10">

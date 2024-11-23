@@ -15,8 +15,8 @@ class PostLike extends Component
     public function mount(Post $post)
     {
         $this->post = $post;
+        $this->likesCount = $post->likes_count;
         $this->isLiked = $post->likes()->where('user_id', auth()->id())->exists();
-        $this->likesCount = $post->likes()->count();
     }
 
     public function toggleLike()
@@ -38,7 +38,7 @@ class PostLike extends Component
 
             // Notify the post owner
             if ($this->post->user_id !== auth()->id()) {
-                $this->post->user->notify(new PostLikedNotification(auth()->user(), $this->post));
+                $this->post->user->notify(new PostLikedNotification(request()->user(), $this->post));
             }
         }
     }
