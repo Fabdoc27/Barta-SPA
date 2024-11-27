@@ -5,6 +5,7 @@ namespace App\Livewire\Auth;
 use App\Livewire\GuestComponent;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 
@@ -27,15 +28,19 @@ class RegisterUser extends GuestComponent
 
     public function register()
     {
-        $validated = $this->validate();
+        try {
+            $validated = $this->validate();
 
-        $user = User::create($validated);
+            $user = User::create($validated);
 
-        Auth::login($user);
+            Auth::login($user);
 
-        session()->flash('message', 'You have successfully registered');
+            session()->flash('message', 'You have successfully registered');
 
-        return $this->redirectRoute('home', navigate: true);
+            return $this->redirectRoute('home', navigate: true);
+        } catch (ValidationException) {
+            $this->reset('password', 'password_confirmation');
+        }
     }
 
     public function render()

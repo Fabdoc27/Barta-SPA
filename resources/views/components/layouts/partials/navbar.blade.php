@@ -17,7 +17,9 @@
                 </a>
 
                 {{-- Notification Dropdown --}}
-                <livewire:notification-dropdown />
+                @if (auth()->check())
+                    <livewire:notification-dropdown />
+                @endif
 
                 {{-- Profile dropdown  --}}
                 <div class="relative ml-3" x-data="{ open: false }">
