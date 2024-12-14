@@ -11,6 +11,7 @@ class SearchBar extends Component
 {
     #[Validate('required')]
     public $word = '';
+
     public $results = [];
 
     public function updatedWord($value)

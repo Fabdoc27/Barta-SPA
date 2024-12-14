@@ -16,6 +16,7 @@
             display: none !important;
         }
     </style>
+
     @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -29,21 +30,8 @@
     </main>
 
     @include('components.layouts.partials.footer')
+
     @livewireScripts
-
-    @if (auth()->check())
-        <script type="module">
-            Echo.private(`users.{{ auth()->id() }}`)
-                .notification((notification) => {
-                    if (notification.type === 'post.liked') {
-                        $wire.dispatch('echo-private:users.{{ auth()->id() }},post.liked', notification);
-                    } else if (notification.type === 'post.commented') {
-                        $wire.dispatch('echo-private:users.{{ auth()->id() }},post.commented', notification);
-                    }
-                });
-        </script>
-    @endif
-
 </body>
 
 </html>

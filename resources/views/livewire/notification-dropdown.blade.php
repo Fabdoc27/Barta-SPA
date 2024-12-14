@@ -1,4 +1,8 @@
-<div x-data="{ open: false }" class="relative">
+<div x-data="{ open: false }" class="relative" x-init="Echo.private('users.{{ auth()->id() }}')
+    .notification((notification) => {
+        $dispatch('refresh-notification')
+    });">
+
     {{-- Bell Icon --}}
     <button @click="open = !open" class="relative flex items-center focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="size-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">

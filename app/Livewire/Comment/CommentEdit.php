@@ -13,6 +13,7 @@ class CommentEdit extends Component
 
     #[Validate('required|string|max:255')]
     public $content;
+
     public $isModalOpen = false;
 
     #[On('edit-comment')]

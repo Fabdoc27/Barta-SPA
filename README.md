@@ -1,3 +1,14 @@
+# Barta - SPA
+
+Barta is a modern single-page application (SPA) built with Laravel and Livewire, offering real-time updates via WebSockets. It features an interactive, dynamic feed, instant notifications, and seamless user interactions with no page reloads, providing an optimized, smooth experience throughout.
+
+## Features
+
+-   **Dynamic Home Feed**: Infinite scrolling, user filtering, and stats for likes and comments.
+-   **Real-Time Notifications**: Instant updates for likes and comments via WebSockets (Pusher & Laravel Echo).
+-   **Live Search Bar**: Quickly find users with instant search results.
+-   **User-Friendly SPA**: Built entirely with Livewire for smooth transitions and optimal performance.
+
 ## Getting Started
 
 Follow these instructions to set up the project.
@@ -7,13 +18,13 @@ Follow these instructions to set up the project.
 1. **Clone the repository:**
 
     ```shell
-    git clone "git@github.com:ashrafulbinharun/LCP_Assignment-11.git"
+    git@github.com:ashrafulbinharun/Barta-SPA.git
     ```
 
 2. **Navigate to the project directory:**
 
     ```shell
-    cd "LCP_Assignment-11"
+    cd "Barta-SPA"
     ```
 
 3. **Install PHP dependencies:**
@@ -34,32 +45,54 @@ Follow these instructions to set up the project.
     cp .env.example .env
     ```
 
-6. **Generate the application key:**
+6. **Set up your `.env` file:**
+
+    ```env
+    BROADCAST_DRIVER=pusher
+    PUSHER_APP_ID=your-app-id
+    PUSHER_APP_KEY=your-app-key
+    PUSHER_APP_SECRET=your-app-secret
+    PUSHER_APP_CLUSTER=your-app-cluster
+    ```
+
+7. **Generate the application key:**
 
     ```shell
     php artisan key:generate
     ```
 
-7. **Run database migrations:**
+8. **Run database migrations:**
 
     ```shell
     php artisan migrate
     ```
 
-8. **Seed the database (optional):**
+9. **Seed the database (optional):**
 
     ```shell
     php artisan db:seed
     ```
 
-9. **Start the local development server:**
+10. **Start the local development server:**
 
     ```shell
     php artisan serve
     ```
 
-10. **Compile front-end assets:**
+11. **Compile front-end assets:**
 
     ```shell
     npm run dev
+    ```
+
+12. **Start the queue worker:**
+
+    ```shell
+    php artisan queue:work
+    ```
+
+13. **Clear livewire temporary files (additional):**
+
+    ```shell
+    php artisan clear-livewire-temp
     ```

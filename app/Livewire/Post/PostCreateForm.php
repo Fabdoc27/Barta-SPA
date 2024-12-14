@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Post;
 
-use App\Models\User;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;

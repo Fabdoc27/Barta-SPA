@@ -23,7 +23,7 @@ class LoginUser extends GuestComponent
     {
         $credentials = $this->validate();
 
-        if ( ! Auth::attempt($credentials, $this->remember)) {
+        if (! Auth::attempt($credentials, $this->remember)) {
             $this->reset('password');
 
             throw ValidationException::withMessages([
@@ -32,6 +32,7 @@ class LoginUser extends GuestComponent
         }
 
         session()->regenerate();
+
         session()->flash('message', 'Login successfully');
 
         $this->redirectIntended(navigate: true);

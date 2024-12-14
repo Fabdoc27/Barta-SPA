@@ -8,16 +8,34 @@ class CommentList extends Component
 {
     public $post;
     public $comments;
+    public $offset;
+    public $limit = 20;
+    public $loadMore;
 
     public function mount($post)
     {
         $this->post = $post;
+        $this->comments = collect();
+        $this->offset = 0;
+        $this->loadMore = true;
         $this->loadComments();
     }
 
     public function loadComments()
     {
-        $this->comments = $this->post->comments()->with('user')->latest()->get();
+        $newComments = $this->post->comments()
+            ->with('user')
+            ->latest()
+            ->offset($this->offset)
+            ->limit($this->limit)
+            ->get();
+
+        if ($newComments->count() < $this->limit) {
+            $this->loadMore = false;
+        }
+
+        $this->comments = $this->comments->merge($newComments);
+        $this->offset += $this->limit;
     }
 
     public function commentEditModal($commentId, $content)

@@ -8,5 +8,5 @@ use Livewire\Component;
 #[Layout('components.layouts.guest')]
 class GuestComponent extends Component
 {
-
+    //
 }

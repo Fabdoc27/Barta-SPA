@@ -41,7 +41,7 @@ class PostEdit extends Component
         if ($this->removeExistingImage === true) {
             $this->deleteImage($this->post->image);
             $validated['image'] = null;
-        } else if ($this->image) {
+        } elseif ($this->image) {
             // new image
             $this->deleteImage($this->post->image);
             $validated['image'] = $this->image->storePublicly('post_images', ['disk' => 'public']);

@@ -10,7 +10,7 @@ use Livewire\WithPagination;
 #[Title('Notifications')]
 class NotificationIndex extends Component
 {
-    use WithPagination, WithoutUrlPagination;
+    use WithoutUrlPagination, WithPagination;
 
     public function mount()
     {

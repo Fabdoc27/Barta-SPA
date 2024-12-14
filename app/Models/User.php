@@ -54,9 +54,9 @@ class User extends Authenticatable
     protected function getAvatar(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this->avatar_url
-            ? asset('storage/' . $this->avatar_url)
-            : 'https://ui-avatars.com/api/?name=' . $this->name,
+            get: fn () => $this->avatar_url
+            ? asset('storage/'.$this->avatar_url)
+            : 'https://ui-avatars.com/api/?name='.$this->name,
         );
     }
 
@@ -77,6 +77,6 @@ class User extends Authenticatable
 
     public function receivesBroadcastNotificationsOn(): string
     {
-        return 'users.' . $this->id;
+        return 'users.'.$this->id;
     }
 }

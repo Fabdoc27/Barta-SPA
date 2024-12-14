@@ -78,5 +78,11 @@
         </article>
     @endforeach
 
+    @if ($loadMore)
+        <div>
+            <x-load-more-button wire:click="loadComments">Load More</x-load-more-button>
+        </div>
+    @endif
+
     <livewire:comment.comment-edit />
 </div>

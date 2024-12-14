@@ -31,8 +31,8 @@
     @endforelse
 
     @if ($loadMore)
-        <button wire:click="loadPosts" class="text-gray-900 hover:text-white border-2 border-gray-800 hover:bg-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-            Load More
-        </button>
+        <div>
+            <x-load-more-button wire:click="loadPosts">Load More</x-load-more-button>
+        </div>
     @endif
 </section>

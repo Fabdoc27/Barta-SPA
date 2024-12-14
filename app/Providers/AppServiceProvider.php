@@ -21,6 +21,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Livewire::component('logout', \App\Livewire\Auth\Logout::class);
-        // Livewire::component('avatar-update-form', \App\Livewire\Profile\AvatarUpdateForm::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class NotificationDropdown extends Component
@@ -14,16 +15,7 @@ class NotificationDropdown extends Component
         $this->fetchNotifications();
     }
 
-    public function getListeners()
-    {
-        $authId = auth()->id();
-
-        return [
-            "echo-private:users.{$authId},post.liked" => 'newNotification',
-            "echo-private:users.{$authId},post.commented" => 'newNotification',
-        ];
-    }
-
+    #[On('refresh-notification')]
     public function fetchNotifications()
     {
         $user = auth()->user();
@@ -32,12 +24,6 @@ class NotificationDropdown extends Component
             $this->notifications = $user->notifications()->latest()->take(5)->get();
             $this->unreadCount = $user->unreadNotifications()->count();
         }
-    }
-
-    public function newNotification($notification)
-    {
-        $this->notifications->prepend($notification);
-        $this->unreadCount++;
     }
 
     public function markAllAsRead()
