@@ -12,10 +12,8 @@ class PostCreateForm extends Component
 
     #[Validate('nullable|string|required_without:image')]
     public $content;
-
     #[Validate('nullable|max:2048|mimetypes:image/jpeg,image/png,image/jpg|required_without:content')]
     public $image;
-
     public $removeImage = false;
 
     public function clearImage()

@@ -13,17 +13,15 @@ class LoginUser extends GuestComponent
 {
     #[Validate('required|email|exists:users,email')]
     public $email;
-
     #[Validate('required')]
     public $password;
-
     public $remember = false;
 
     public function login()
     {
         $credentials = $this->validate();
 
-        if (! Auth::attempt($credentials, $this->remember)) {
+        if ( ! Auth::attempt($credentials, $this->remember)) {
             $this->reset('password');
 
             throw ValidationException::withMessages([

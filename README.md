@@ -18,7 +18,7 @@ Follow these instructions to set up the project.
 1. **Clone the repository:**
 
     ```shell
-    git@github.com:ashrafulbinharun/Barta-SPA.git
+    git@github.com:Fabdoc27/Barta-SPA.git
     ```
 
 2. **Navigate to the project directory:**

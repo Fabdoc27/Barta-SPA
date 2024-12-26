@@ -14,16 +14,12 @@ class RegisterUser extends GuestComponent
 {
     #[Validate('required|string')]
     public $name;
-
     #[Validate('required|string|unique:users,username')]
     public $username;
-
     #[Validate('required|email|unique:users,email')]
     public $email;
-
     #[Validate('required|confirmed|min:6')]
     public $password;
-
     public $password_confirmation;
 
     public function register()

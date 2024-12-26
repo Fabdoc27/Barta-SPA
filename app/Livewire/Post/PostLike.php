@@ -9,7 +9,9 @@ use Livewire\Component;
 class PostLike extends Component
 {
     public $post;
+
     public $isLiked;
+
     public $likesCount;
 
     public function mount(Post $post)
@@ -21,7 +23,7 @@ class PostLike extends Component
 
     public function toggleLike()
     {
-        if ( ! auth()->check()) {
+        if (! auth()->check()) {
             return redirect()->route('login');
         }
 

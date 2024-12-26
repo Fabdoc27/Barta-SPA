@@ -15,8 +15,8 @@ class ClearLivewireTemp extends Command
     {
         $path = storage_path('app/private/livewire-tmp');
 
-        if ( ! File::exists($path)) {
-            $this->error('No Livewire temporary files found at: ' . $path);
+        if (! File::exists($path)) {
+            $this->error('No Livewire temporary files found at: '.$path);
 
             return;
         }

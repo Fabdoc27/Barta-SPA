@@ -13,10 +13,8 @@ class AvatarUpdateForm extends Component
     use WithFileUploads;
 
     public User $user;
-
     #[Validate('required|max:1024|mimetypes:image/jpeg,image/png,image/jpg')]
     public $avatar;
-
     public $existingAvatar;
 
     public function mount()
